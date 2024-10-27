@@ -4,7 +4,7 @@
 This project is designed to analyze AWS VPC Flow Logs. It parses flow log data and maps each log entry to a tag based on a provided lookup table. The program processes log files and generates statistical output about the analyzed logs.
 
 ## Directory Structure
-
+```
 flow-log-analysis/
 ├── cmd/
 │ └── flow-log-analysis/
@@ -19,6 +19,7 @@ flow-log-analysis/
 │ └── flowlog.txt
 ├── go.mod
 └── README.md
+```
 
 ## Libraries Used
 This project uses only Go standard libraries:
@@ -48,14 +49,20 @@ This project uses only Go standard libraries:
 
 ### Building and Running the Program
 1. Clone this repository:
+```
 git clone https://github.com/yourusername/flow-log-analysis.git
 cd flow-log-analysis
+```
 
 2. Build the program:
+```
 go build -o flow-analyzer ./cmd/flow-log-analysis
+```
 
-3. Run the program:
+4. Run the program:
+```
 ./flow-analyzer -lookup ./data/lookup.txt -log ./data/flowlog.txt -output .
+```
 
 ## Output
 The program generates two CSV files in the specified output directory:
@@ -67,7 +74,7 @@ The following tests and validations were performed:
 
 1. Log entry with fewer than 14 fields:
 - Added a log entry with only 13 fields.
-- Result: The entry was skipped, and a warning was logged.
+- Result: The parsing on the entry was skipped
 
 2. Log entry with version 3 instead of version 2:
 - Added a log entry starting with "3" instead of "2".
